@@ -1,0 +1,54 @@
+{
+  "anuncios": [
+    {
+      "nombre": "Bicicleta",
+      "venta": true,
+      "precio": 89.99,
+      "foto": "bicicleta.jpg",
+      "tags": [
+        "lifestyle",
+        "motor"
+      ]
+    },
+    {
+      "nombre": "iPhone 10",
+      "venta": false,
+      "precio": 500.00,
+      "foto": "iphone.png",
+      "tags": [
+        "lifestyle",
+        "mobile"
+      ]
+    },
+    {
+      "nombre": "Monopatín eléctrico",
+      "venta": true,
+      "precio": 259.99,
+      "foto": "monopatin-electrico.png",
+      "tags": [
+        "lifestyle",
+        "work"
+      ]
+    },
+    {
+      "nombre": "Auriculares",
+      "venta": false,
+      "precio": 35.25,
+      "foto": "auriculares.png",
+      "tags": [
+        "lifestyle",
+        "mobile",
+        "work"
+      ]
+    },
+    {
+      "nombre": "Nintendo Switch",
+      "venta": true,
+      "precio": 199.99,
+      "foto": "nintendo-switch.png",
+      "tags": [
+        "mobile"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <p>Bienvenid@ a <%= title %>
+  </p>
+  <h2>Ejemplos de urls con filtros rápidos y básicos:</h2>
+  <h3>Búsqueda por tags</h3>
+  <ul>
+    <li><a href="http://localhost:3000/?start=1&limit=3&sort=name&tags=lifestyle">Lifestyle</a></li>
+    <li><a href="http://localhost:3000/?start=1&limit=3&sort=name&tags=work">Work</a></li>
+    <li><a href="http://localhost:3000/?start=1&limit=3&sort=name&tags=motor">Motor</a></li>
+    <li><a href="http://localhost:3000/?start=1&limit=3&sort=name&tags=mobile">Mobile</a></li>
+  </ul>
+  <h3>Búsqueda por estado</h3>
+  <ul>
+    <li><a href="http://localhost:3000/?start=1&limit=3&sort=name&venta=true">Venta</a></li>
+    <li><a href="http://localhost:3000/?start=1&limit=3&sort=name&venta=false">Búsqueda</a></li>
+  </ul>
+  <h2>Los anuncios, con o sin filtros:</h2>
+
+  <p>
+    <% anuncioHTML.forEach( anuncio=> { %>
+      <article>
+        <h3>
+          <%= anuncio.nombre %>:
+        </h3>
+        <ul>
+          <li>
+            <% if(anuncio.venta) { %>
+              El producto está a la venta
+              <% } else { %>
+                El producto se busca
+                <% } %>
+          </li>
+          <li>
+            Precio: <%= anuncio.precio %>
+          </li>
+          <li>
+            <%= anuncio.foto %>
+          </li>
+          <li>
+            <%= anuncio.tags %>
+          </li>
+        </ul>
+      </article>
+      <br>
+      <% }) %>
+  </p>
+
+</body>
+
+</html>
