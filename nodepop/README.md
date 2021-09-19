@@ -31,7 +31,7 @@ En ella encontraremos una lista completa de nuestra base de datos de anuncios, l
 - ### Para obtener una lista JSON de anuncios: 
 > /api/anuncios
 
-Estos objetos (anuncios) tienen los mismos filtros disponibles que en la página principal, pero además he añadido la opción de buscar por nombre sin necesitar el exacto (e ignorando mayúsculas y minúsculas) //y de filtrar por rango de precios//. Está mejor documentado en *anuncios.js*.
+Estos objetos (anuncios) tienen los mismos filtros disponibles que en la página principal, pero además he añadido la opción de buscar por nombre sin necesitar el exacto (e ignorando mayúsculas y minúsculas) y de filtrar por rango de precios. Está mejor documentado en *anuncios.js*.
 
 - ### Para obtener una lista de los tags disponibles:
 >/tags

@@ -61,21 +61,42 @@ router.get('/buscar/:nombreBus', async (req, res, next) => {
     }
 });
 
-// NO SÉ CÓMO HACER ESTO:
-
-// GET /api/anuncios/precio/:número (para mayor)
+// GET /api/anuncios/precio/num-otronum (cualquiera de los dos num opcionales)
 // Buscar anuncios dependiendo del rango de precios en el que se encuentren
-/* router.get('/precio/:preciominmax', async (req, res, next) => {
+router.get('/precio/:preciominmax', async (req, res, next) => {
     try {
         const qty = req.params.preciominmax;
+        const qtySplitted = qty.split("-");
+        // Si el número es único mostrará los articulos con el precio exacto
+        if (qtySplitted.length === 1) {
 
-        const anuncio = await Anuncio.find({ precio: { $lt: qty } });
-        res.json({ result: anuncio });
+            const qty1 = parseInt(qtySplitted[0]);
+            const anuncio = await Anuncio.find({ precio: qty1 });
+            res.json({ result: anuncio });
+        }
+        // Si el número tiene un guión a la izquierda mostrará los artículos con menor precio que la cifra indicada
+        else if (qtySplitted[0] === "") {
+            const qty1 = parseInt(qtySplitted[1]);
+            const anuncio = await Anuncio.find({ precio: { $lte: qty1 } });
+            res.json({ result: anuncio });
+        }
+        // Si el número tiene un guión a la derecha mostrará los artículos con mayor precio que la cifra indicada
+        else if (qtySplitted[1] === "") {
+            const qty1 = parseInt(qtySplitted[0]);
+            const anuncio = await Anuncio.find({ precio: { $gte: qty1 } });
+            res.json({ result: anuncio });
+        }
+        // Si se intruducen 2 número separados por un guión se mostrarán los artículos cuyo precio se halle en ese rango
+        else if (qtySplitted[0] != "" & qtySplitted[1] != "") {
+            const qty1 = parseInt(qtySplitted[0]);
+            const qty2 = parseInt(qtySplitted[1]);
+            const anuncio = await Anuncio.find({ precio: { $gte: qty1, $lte: qty2 } });
+            res.json({ result: anuncio });
+        }
     } catch (err) {
         next(err);
     }
 });
- */
 
 // POST /api/anuncios 
 // Crear un anuncio
